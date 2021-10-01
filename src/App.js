@@ -8,7 +8,7 @@ import {
   CryptoCurrencies,
   News,
   CryptoDetails,
-  Exchange,
+  Exchanges,
   Footer,
 } from "./components";
 import theme from "./theme";
@@ -24,8 +24,8 @@ const App = () => {
               <Route exact path="/">
                 <HomePage />
               </Route>
-              <Route exact path="/exchange">
-                <Exchange />
+              <Route exact path="/exchanges">
+                <Exchanges />
               </Route>
               <Route exact path="/cryptocurrencies">
                 <CryptoCurrencies />

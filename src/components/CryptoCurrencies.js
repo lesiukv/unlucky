@@ -5,7 +5,6 @@ import {
   Card,
   Grid,
   Input,
-  Container,
   CardContent,
   Typography,
   Avatar,
@@ -29,7 +28,7 @@ const CryptoCurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchCrypto]);
 
-  if (!cryptos) return "Loading...";
+  if (isFetching) return "Loading...";
 
   return (
     <>

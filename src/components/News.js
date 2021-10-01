@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {
-  Box,
   Typography,
   Grid,
   Avatar,
   Card,
   CardContent,
-  CardMedia,
-  CardActions,
-  Button,
-  Input,
-  Select,
-  MenuItem,
   FormControl,
-  InputLabel,
   NativeSelect,
 } from "@mui/material";
 import moment from "moment";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import useStyles from "./styles";
-import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
 const News = ({ simplified }) => {

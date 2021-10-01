@@ -1,11 +1,12 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Grid, Typography } from "@mui/material";
+import { Typography, CardContent, Card } from "@mui/material";
+import useStyles from "./styles"
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
   const coinTimestamp = [];
-
+  const classes = useStyles();
   console.log(coinHistory)
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
@@ -21,8 +22,8 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         label: "Price in USD",
         data: coinPrice,
         fill: false,
-        backgroundColor: "#ffffff",
-        borderColor: "#dddddd",
+        backgroundColor: '#C2D8B9',
+        borderColor: '#738290',
       },
     ],
   };
@@ -40,10 +41,12 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   console.log(data);
   return (
     <>
-      <Grid>
-        <Typography>{coinName} Price Chart</Typography>
-      </Grid>
-      <Line data={data} options={options} />
+      <Card>
+        <CardContent>
+          <Typography variant="h6">{coinName} Price Chart</Typography>
+          <Line data={data} options={options} />
+        </CardContent>
+      </Card>
     </>
   );
 };

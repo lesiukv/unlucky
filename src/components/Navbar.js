@@ -54,7 +54,7 @@ const Navbar = () => {
       </MenuItem>
       <MenuItem>
         <Button>
-          <Link to="/exchange">Exchange</Link>
+          <Link to="/exchanges">Exchange</Link>
         </Button>
       </MenuItem>
       <MenuItem>
@@ -82,7 +82,7 @@ const Navbar = () => {
                   <Link to="/news">News</Link>
                 </Button>
                 <Button>
-                  <Link to="/exchange">Exchange</Link>
+                  <Link to="/exchanges">Exchanges</Link>
                 </Button>
                 <Button>
                   <Link to="/cryptocurrencies">Cryptocurrencies</Link>

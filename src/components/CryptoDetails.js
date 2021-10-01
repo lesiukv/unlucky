@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import millify from "millify";
@@ -6,7 +6,6 @@ import {
   Grid,
   Typography,
   NativeSelect,
-  MenuItem,
   Box,
   CardContent,
   Card,
@@ -17,24 +16,19 @@ import {
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
 import useStyles from "./styles";
-import { LineChart } from ".";
+import { LineChart } from "../components";
 
 const CryptoDetails = () => {
   const { cryptoId } = useParams();
-  const  [timePeriod, setTimePeriod]  = useState("7d");
+  const [timePeriod, setTimePeriod] = useState("7d");
   const { data: cryptoData, isFetching } = useGetCryptoDetailsQuery(cryptoId);
   const { data: coinHistory } = useGetCryptoHistoryQuery({
     coinId: cryptoId,
-    timePeriod: timePeriod
+    timePeriod: timePeriod,
   });
   const classes = useStyles();
 
-  useEffect(() => {
-
-  }, [coinHistory, timePeriod]);
-
   const cryptoDetails = cryptoData?.data?.coin;
-
   const time = ["24h", "7d", "30d", "1y", "5y"];
 
   if (isFetching) return "loading....";
@@ -122,11 +116,13 @@ const CryptoDetails = () => {
             </CardContent>
           </Card>
         </Grid>
-        <LineChart
-          coinHistory={coinHistory}
-          currentPrice={millify(cryptoDetails.price)}
-          coinName={cryptoDetails.name}
-        />
+        <Grid item xs={12}>
+          <LineChart
+            coinHistory={coinHistory}
+            currentPrice={millify(cryptoDetails.price)}
+            coinName={cryptoDetails.name}
+          />
+        </Grid>
         <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
