@@ -6,13 +6,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import millify from "millify";
 
 const Exchanges = () => {
-  const classes = useStyles();
+	const classes = useStyles();
   const { data: cryptosList, isFetching } = useGetCryptosQuery(100);
   const [width, setWidth] = useState(0);
   const ref = useRef(null);
 
   useEffect(() => {
-    setWidth(ref.current ? ref.current.offsetWidth / 4 - 30: 0);
+    setWidth(ref.current ? ref.current.offsetWidth / 5 : 200);
   }, []);
 
   if (isFetching) return "Loading";
@@ -25,8 +25,8 @@ const Exchanges = () => {
     col5: millify(coin.change),
   }));
 
-  const columns = (columnWidth = 200) => [
-    { field: "id", headerName: "id", width: 80 },
+  const columns = (columnWidth) => [
+    { field: "id", headerName: "id", width: columnWidth },
     { field: "col2", headerName: "Cryptocurrency name", width: columnWidth },
     { field: "col3", headerName: "Number of Markets", width: columnWidth },
     { field: "col4", headerName: "24h Trade Volume", width: columnWidth },

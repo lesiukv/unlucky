@@ -52,23 +52,23 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexWrap: "nowrap",
     justifyContent: "space-around",
-    alignItems: 'center'
+    alignItems: "center",
   },
   cardFooter: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-    marginTop: '10px'
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+    marginTop: "10px",
   },
   blockTitle: {
-    margin: '20px 0px 10px 0px !important'
+    margin: "20px 0px 10px 0px !important",
   },
   datePublished: {
-    margin: '20px 0px !important'
+    margin: "20px 0px !important",
   },
   cryptoDetails: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
   },
 }));

@@ -1,13 +1,10 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { Typography, CardContent, Card } from "@mui/material";
-import useStyles from "./styles"
 
-const LineChart = ({ coinHistory, currentPrice, coinName }) => {
+const LineChart = ({ coinHistory, coinName }) => {
   const coinPrice = [];
   const coinTimestamp = [];
-  const classes = useStyles();
-  console.log(coinHistory)
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
     coinPrice.push(coinHistory.data.history[i].price);
@@ -15,6 +12,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       new Date(coinHistory.data.history[i].timestamp).toLocaleString()
     );
   }
+
   const data = {
     labels: coinTimestamp,
     datasets: [
@@ -38,7 +36,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       ],
     },
   };
-  console.log(data);
+
   return (
     <>
       <Card>

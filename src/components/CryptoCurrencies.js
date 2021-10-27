@@ -15,8 +15,9 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import useStyles from "./styles";
 
 const CryptoCurrencies = ({ simplified }) => {
-
-  const { data: cryptosList, isFetching } = useGetCryptosQuery(simplified ? 9 : 100);
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(
+    simplified ? 9 : 100
+  );
   const [cryptos, setCryptos] = useState([]);
   const [searchCrypto, setSearchCrypto] = useState("");
   const classes = useStyles();
